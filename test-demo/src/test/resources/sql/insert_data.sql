@@ -1,0 +1,1 @@
+insert into user_info(name, password) values('jaky.wang', 'jaky.wang password');

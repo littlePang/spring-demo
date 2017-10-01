@@ -1,0 +1,8 @@
+databaseProperties:
+    url: jdbc:h2:mem:test;MODE=MYSQL
+    username:
+    password:
+    driverClassName: org.h2.Driver
+
+mybatis:
+    mapperLocations: com.jaky.test.demo.dao.*

@@ -14,6 +14,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -24,24 +26,14 @@ import javax.sql.DataSource;
  */
 @SpringBootTest
 @RunWith(SpringRunner.class)
+@Sql(scripts = {"classpath:sql/create_table.sql", "classpath:sql/insert_data.sql"})
+@SqlConfig(dataSource = "dataSource")
 public class UserDaoTest {
 
   private static final Logger LOG = LoggerFactory.getLogger(UserDaoTest.class);
 
   @Resource
   private UserDao userDao;
-
-  @Resource
-  private ApplicationContext applicationContext;
-
-  @Before
-  public void before() {
-    ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
-    rdp.addScript(new ClassPathResource("sql/create_table.sql"));
-    rdp.addScript(new ClassPathResource("sql/insert_data.sql"));
-    DatabasePopulatorUtils.execute(rdp, applicationContext.getBean(DataSource.class));
-
-  }
 
   @Test
   public void find_one_test() {

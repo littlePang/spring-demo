@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: sleuth-client
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  sleuth:
+    sampler:
+      percentage: 1.0 # 设置样本收集率为1，即所有样本都收集
+server:
+  port: 9998

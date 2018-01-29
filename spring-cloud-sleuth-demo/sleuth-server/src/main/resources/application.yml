@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: sleuth-zipkin-server
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/zipkin
+    username: root
+    password: ""
+    driver-class-name: com.mysql.jdbc.Driver
+  sleuth:
+    enabled: false
+
+# 在 zipkin.autoconfigure.storage.mysql.ZipkinMySQLStorageAutoConfiguration 这个里面 有使用这个配置的判断
+zipkin:
+  storage:
+    type: mysql

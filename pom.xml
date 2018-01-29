@@ -11,6 +11,7 @@
     <modules>
         <module>spring-demo</module>
         <module>test-demo</module>
+        <module>spring-cloud-sleuth-demo</module>
     </modules>
 
     <properties>

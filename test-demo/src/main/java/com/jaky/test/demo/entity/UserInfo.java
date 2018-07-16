@@ -1,9 +1,30 @@
 package com.jaky.test.demo.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by jaky.wang on 2017/9/30.
  */
 public class UserInfo {
+
+
+  public  String classify(Set<?> s) {
+    return "set";
+  }
+  public  String classify(Collection<?> s) {
+    return "unknown";
+  }
+  public static void main(String[] args) {
+    Collection<?>[] collections = {new HashSet<Integer>(), new ArrayList<Integer>()};
+    for (Collection<?> c : collections) {
+      System.out.println(new UserInfo().classify(c));
+    }
+  }
+
+
   private long id;
   private String name;
   private String password;

@@ -9,16 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-netflix-demo</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>spring-cloud-eureka-server</module>
-        <module>spring-cloud-eureka-client</module>
-        <module>spring-cloud-feign-server</module>
-        <module>spring-cloud-feign-client</module>
-        <module>spring-cloud-hystrix-client</module>
-    </modules>
-
+    <artifactId>jdk-demo</artifactId>
 
 
 </project>

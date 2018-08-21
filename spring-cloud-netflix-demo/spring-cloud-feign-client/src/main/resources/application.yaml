@@ -7,3 +7,9 @@ eureka:
 spring:
   application:
     name: feign-client
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

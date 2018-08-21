@@ -15,6 +15,8 @@
         <module>weixin-server</module>
         <module>spring-cloud-bus-demo</module>
         <module>spring-cloud-netflix-demo</module>
+        <module>spring-reactor-demo</module>
+        <module>jdk-demo</module>
     </modules>
 
     <properties>
@@ -25,6 +27,7 @@
         <spring-cloud-dependencies.version>Dalston.SR4</spring-cloud-dependencies.version>
         <zipkin-elasticsearch-http.version>1.28.0</zipkin-elasticsearch-http.version>
         <spring-cloud-netflix.version>2.0.0.RELEASE</spring-cloud-netflix.version>
+        <reactor-core.version>3.1.8.RELEASE</reactor-core.version>
     </properties>
 
 
@@ -71,6 +74,13 @@
                 <groupId>io.zipkin.java</groupId>
                 <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
                 <version>${zipkin-elasticsearch-http.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+            <dependency>
+                <groupId>io.projectreactor</groupId>
+                <artifactId>reactor-core</artifactId>
+                <version>${reactor-core.version}</version>
             </dependency>
 
         </dependencies>

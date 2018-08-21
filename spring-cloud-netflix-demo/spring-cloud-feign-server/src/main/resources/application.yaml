@@ -6,6 +6,8 @@ eureka:
       defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
     healthcheck:
       enable: true
+  instance:
+    prefer-ip-address: true
 spring:
   application:
     name: feign-rpc-server

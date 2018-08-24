@@ -3,6 +3,7 @@ package com.jaky.jdk.demo;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.List;
 
 /**
  * @author xiaomo.wj
@@ -20,9 +21,10 @@ public class ProxyDemo {
 
   public interface MyInterface {
 
-    String doProcess();
+     String doProcess();
 
-    ProcessType processType();
+     ProcessType processType();
+
   }
 
   public static class MyInvocationHandler implements InvocationHandler {

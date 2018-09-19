@@ -18,6 +18,7 @@
         <module>spring-reactor-demo</module>
         <module>jdk-demo</module>
         <module>spring-batch-demo</module>
+        <module>spring-redis-demo</module>
     </modules>
 
     <properties>
@@ -30,6 +31,7 @@
         <zipkin-elasticsearch-http.version>1.28.0</zipkin-elasticsearch-http.version>
         <spring-cloud-netflix.version>2.0.0.RELEASE</spring-cloud-netflix.version>
         <reactor-core.version>3.1.8.RELEASE</reactor-core.version>
+        <jedis.version>2.9.0</jedis.version>
     </properties>
 
 
@@ -83,6 +85,14 @@
                 <groupId>io.projectreactor</groupId>
                 <artifactId>reactor-core</artifactId>
                 <version>${reactor-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
             </dependency>
 
         </dependencies>

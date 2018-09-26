@@ -3,7 +3,6 @@ package com.jaky.jdk.demo;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.List;
 
 /**
  * @author xiaomo.wj
@@ -17,6 +16,10 @@ public class ProxyDemo {
         new Class<?>[] {MyInterface.class}, handler);
     System.out.println(myInterface.doProcess());
     System.out.println(myInterface.processType());
+    System.out.println(myInterface.getClass().getCanonicalName());
+    System.out.println(myInterface.getClass().isAssignableFrom(Proxy.class));
+    System.out.println(Proxy.class.isAssignableFrom(myInterface.getClass()));
+    System.out.println(myInterface instanceof Proxy);
   }
 
   public interface MyInterface {

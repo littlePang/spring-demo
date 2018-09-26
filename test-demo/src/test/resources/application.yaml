@@ -6,3 +6,5 @@ databaseProperties:
 
 mybatis:
     mapperLocations: com.jaky.test.demo.dao.*
+
+zh.test: 中国

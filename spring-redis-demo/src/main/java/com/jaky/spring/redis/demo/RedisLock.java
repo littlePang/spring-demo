@@ -54,7 +54,7 @@ public class RedisLock implements Lock {
       // 尝试获取锁，如果获取成功，直接返回
       long nowTime = System.currentTimeMillis();
       Long lockResult = JEDIS.setnx(LOCK_KEY, Long.toString(nowTime));
-      if (lockResult == 1) {
+      if (lockResult.equals(1L)) {
         lockTime.set(nowTime);
         return;
       }

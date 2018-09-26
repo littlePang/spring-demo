@@ -1,5 +1,7 @@
 package com.jaky.test.demo.dao;
 
+import java.util.List;
+
 import com.jaky.test.demo.entity.UserInfo;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -35,11 +38,19 @@ public class UserDaoTest {
   @Resource
   private UserDao userDao;
 
+  @Value("#{'${zh.test:}'.split(',')}")
+  private List<String> zhs;
+
   @Test
   public void find_one_test() {
     UserInfo info = userDao.findByid(1);
     Assert.assertNotNull(info);
     Assert.assertEquals(1, info.getId());
     Assert.assertEquals("jaky.wang", info.getName());
+  }
+
+  @Test
+  public void zh_test() {
+    System.out.println(zhs);
   }
 }

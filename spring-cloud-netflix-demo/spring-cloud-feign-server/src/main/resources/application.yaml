@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/
+      defaultZone: http://127.0.0.1:8081/eureka/
     healthcheck:
       enable: true
   instance:

@@ -15,6 +15,8 @@ public class Application {
 
   public static void main(String[] args) throws InterruptedException {
 
+    new RuntimeException().getStackTrace();
+
     ExecutorService executorService = Executors.newFixedThreadPool(20);
 
     for (int i = 0; i < 20; i++) {

@@ -1,5 +1,9 @@
 package com.jaky.wang.leetcode.problems;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+
 /**
  * 将字符串中最前置的数字字符串转换为int，超过int的范围则返回 min_value 或者 max_value
  *
@@ -8,7 +12,23 @@ package com.jaky.wang.leetcode.problems;
  */
 public class Problem8 {
 
+  static class Color {
+    public Color(int a, int b, int c) {
+    }
+
+  }
+
+  public interface TriFunction<T, U, V, R>{
+    R apply(T t, U u, V v);
+  }
+
   public static void main(String[] args) {
+
+    TriFunction<Integer, Integer, Integer, Color> colorFactory = Color::new;
+
+    List<String> str = Arrays.asList("a","b","A","B");
+    str.sort((s1, s2) -> s1.compareToIgnoreCase(s2));
+
     System.out.println(new Problem8().myAtoi("42"));
     System.out.println(new Problem8().myAtoi("-42"));
     System.out.println(new Problem8().myAtoi("4193 with words"));

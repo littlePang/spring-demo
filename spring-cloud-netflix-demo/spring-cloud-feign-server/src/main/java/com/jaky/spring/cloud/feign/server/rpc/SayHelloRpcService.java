@@ -21,21 +21,29 @@ public class SayHelloRpcService {
 
   @RequestMapping("hello")
   public String hello() {
-      try {
-          PrintWriter writer = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse()
-              .getWriter();
-          int t = 0;
-          while (t++ < 150) {
-              LOGGER.info("send message {}", t);
-              writer.print("a");
-              writer.flush();
-              TimeUnit.SECONDS.sleep(4);
-          }
-
-      } catch (Exception e) {
-          LOGGER.error("err", e);
-      }
     return "hello world!";
+  }
+
+  /**
+   * 尝试 每次返回部分数据，且不超过 client 端的 read time out 的情况，
+   * 结果：client 端永不超时
+   */
+  @RequestMapping("hello2")
+  public void hello2() {
+    try {
+      PrintWriter writer = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse()
+          .getWriter();
+      int t = 0;
+      while (t++ < 150) {
+        LOGGER.info("send message {}", t);
+        writer.print("a");
+        writer.flush();
+        TimeUnit.SECONDS.sleep(4);
+      }
+
+    } catch (Exception e) {
+      LOGGER.error("err", e);
+    }
   }
 
 }

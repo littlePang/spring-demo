@@ -2,9 +2,7 @@ package com.jaky.jdk.demo;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
-import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author xiaomo.wj
@@ -19,19 +17,15 @@ public class ForkJoinCommonTest {
     System.out.println(Runtime.getRuntime().freeMemory());
     System.out.println(Runtime.getRuntime().maxMemory());
 
-    SleepRecursiveAction a1 = new SleepRecursiveAction(1, 10);
-    a1.fork();
+    /**
+     * 当前计算机8核，8个逻辑CPU，默认common线程池的并发度为7，所以第8个任务会在前7个任务中有处理完成之后，才会继续执行。
+     * 即：在使用 Stream.parallel() 并发执行任务时，
+     * 可能会出现 其他线程执行的 Stream.parallel() 影响到当前线程的并发处理，从而导致阻塞发生。
+     */
+    for (int i = 0; i < 8; i++) {
+      new SleepRecursiveAction(i+1, 5).fork();
+    }
 
-    SleepRecursiveAction a2 = new SleepRecursiveAction(2, 10);
-    a2.fork();
-
-    SleepRecursiveAction a3 = new SleepRecursiveAction(3, 10);
-    a3.fork();
-
-    TimeUnit.SECONDS.sleep(2);
-
-    SleepRecursiveAction a4 = new SleepRecursiveAction(4, 3);
-    a4.fork();
 
     TimeUnit.SECONDS.sleep(20);
 

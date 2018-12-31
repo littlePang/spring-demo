@@ -14,8 +14,11 @@ public class ThreadPoolTest {
 
     private static Logger logger = LoggerFactory.getLogger(ThreadPoolTest.class);
 
+    /**
+     * 验证：核心线程数全部正在执行任务，任务缓存队列未满的情况下，新任务会进入队列等待，而不会创建新的线程处理任务。
+     */
     public static void main(String[] args) throws InterruptedException {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 1, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(1));
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 1, TimeUnit.MINUTES, new LinkedBlockingQueue<Runnable>(1));
 
         threadPoolExecutor.submit(new Runnable() {
             public void run() {
@@ -41,29 +44,7 @@ public class ThreadPoolTest {
             }
         });
 
-        threadPoolExecutor.submit(new Runnable() {
-            public void run() {
-                logger.info("run third task start");
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    logger.error("run third task err");
-                }
-                logger.info("run third task end");
-            }
-        });
 
-        threadPoolExecutor.submit(new Runnable() {
-            public void run() {
-                logger.info("run four task start");
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    logger.error("run four task err");
-                }
-                logger.info("run four task end");
-            }
-        });
 
         TimeUnit.SECONDS.sleep(5);
 

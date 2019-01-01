@@ -20,6 +20,7 @@
         <module>spring-batch-demo</module>
         <module>spring-redis-demo</module>
         <module>leetcode</module>
+        <module>spring-jta-demo</module>
     </modules>
 
     <properties>

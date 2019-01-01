@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: spring-jta-demo
+  jpa:
+    show-sql: true
+  jta:
+    enabled: true
+    atomikos:
+      datasource:
+        db1:
+          xaProperties.url: jdbc:mysql://127.0.0.1:3306/test
+          xaProperties.user: root
+          xaProperties.password:
+          xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+          uniqueResourceName: test
+          maxPoolSize: 25
+          minPoolSize: 3
+          maxLifetime: 20000
+          borrowConnectionTimeout: 10000
+        db2:
+          xaProperties.url: jdbc:mysql://127.0.0.1:3306/test2
+          xaProperties.user: root
+          xaProperties.password:
+          xaDataSourceClassName: com.mysql.cj.jdbc.MysqlXADataSource
+          uniqueResourceName: test2
+          maxPoolSize: 25
+          minPoolSize: 3
+          maxLifetime: 20000
+          borrowConnectionTimeout: 10000

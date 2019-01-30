@@ -1,5 +1,6 @@
 package com.jaky.spring.cloud.feign.client;
 
+import com.netflix.client.config.IClientConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
 @Component
 public class InvokeTestService implements CommandLineRunner {
 
+
   @Resource
   private SayHelloService sayHelloService;
 
@@ -20,5 +22,7 @@ public class InvokeTestService implements CommandLineRunner {
   public void run(String... args) throws Exception {
     String say = sayHelloService.say();
     System.out.println(say);
+    System.out.println("=========");
+    System.out.println("=========");
   }
 }

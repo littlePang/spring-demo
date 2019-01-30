@@ -7,9 +7,27 @@ eureka:
 spring:
   application:
     name: feign-client
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
 feign:
   client:
     config:
       default:
         connectTimeout: 5000
         readTimeout: 5000
+ribbon:
+#  IsSecure: true # 关键，去掉ssl不生效
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+  MaxConnectionsPerHost: 300
+  MaxTotalConnections: 2000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: true
+  httpclient:
+    enabled: true # 关键，开启httpClient
+#feign-rpc-server:
+#    ribbon:
+#      retryableStatusCodes: 500

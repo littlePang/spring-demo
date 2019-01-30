@@ -46,4 +46,13 @@ public class SayHelloRpcService {
     }
   }
 
+
+  @RequestMapping("hello3")
+  public String hello3() throws InterruptedException {
+    System.out.println("do here");
+    TimeUnit.SECONDS.sleep(7);
+    //throw new RuntimeException("i don't wanna success");
+    return "hello";
+  }
+
 }
